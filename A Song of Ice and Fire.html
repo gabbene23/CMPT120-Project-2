@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<!-- Gregory Abbene  
+     Due: September 26 2012
+     Introduction to Programming, MT 11:00-12:15 W 9:30-10:45
+     Project 2 - A Song of Ice and Fire (Text adventure) -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+   <meta name="author" content="Greg Abbene" />
+   <title>A Song of Ice and Fire: Tyrion's Adventure(Text Adventure Game)</title>
+   <script type="text/JavaScript">
+      var currentScore = 0;
+      
+      var northVisited = false;
+      
+      var eastVisited = false;
+      
+      var westVisited = false;
+      
+      var southVisited = false;
+      
+      function btn_moveN_click(){
+        var msg = "You slowly wobble out of the castle, but you should explore around a little bit. It's a small castle, who knows you could find some crucial items....";
+        updateText(msg);
+        if(!northVisited){
+          currentScore += 5;
+          northVisited = true;
+         }
+      }        
+      
+      function btn_moveW_click() {
+        var msg = "You are at the entrance of the town Inn (Stumble INN), time for another drink. I guess the best way to remember where you left your stuff is to get into the same mindset as last night.";
+        updateText(msg);
+        if(!westVisited){
+          currentScore += 5;
+          westVisited = true;
+         }
+      }   
+
+      function btn_moveE_click() {
+        var msg = "You go back into your most recent resting place, the comfy (horse-free) horse stall, is there something in that manure?";
+        updateText(msg);
+        if(!eastVisited){
+          currentScore += 5;
+          eastVisited = true;
+         }
+      }     
+  
+      function btn_moveS_click() {
+        var msg =  "There appears to be a stone wall there, grow 25 feet then see if you can climb that. You'll get some points for the effort though...";
+        updateText(msg);
+        if(!southVisited){
+          currentScore += 5;
+          southVisited = true;
+         }
+      }                                                
+       
+      function updateText(msg){
+        var ta = document.getElementById("textarea");
+        ta.value = msg + "\n" + "\n" + ta.value; 
+       } /*want to add text at bottom with a line break and each addition separate..also want auto scroll down */
+       
+   </script>
+   <style type="text/css">
+     body {background-color: #0000FF; font-family: "Georgia"; color: white;} 
+     .mailto {background-color: red; color: White;}    
+     .textarea {background-color: black; color: #C0C0C0; font-size: 12pt; font-weight: bold}
+     .validator {background-color: #FFFFFF}
+   </style>
+</head>
+<body>
+  <h1>A Song Of Ice and Fire: Tyrion's Adventure</h1>
+    <textarea class= "textarea" id="textarea" rows="25" cols= "60">Welcome to A Song of Ice and Fire the text adventure! (Based on the amazing novels written by George R.R Martin) 
+  
+  You will be playing as Tyrion Lannister...the wealthy, witty, and whimsical Imp. You find yourself in quite the predicament...like always.
+  
+  With an aching head and a dry mouth from what you presume to be from another overdose of Dornish wine from last night, you find yourself slowly lifting up your body off the cold dirty ground. Shortly after pulling yourself up, you slip into a pile of manure. I guess your visit to Ashford didn't go as planned. Time to weasel your way back to your home in King's Landing, again.
+  
+  Your journey starts in a mild inebriation covered in a mixture of manure and hay. In the middle of the town square involuntarily disguised as a common folk, the first decision awaits. With a fogged mind you recall that King's Landing is somewhat NORTHEAST of here, but first you must gather some of your lost belongings and embark on a dangerous navigation back home.</textarea>
+ 
+      <br>
+    <p style="text-indent: 275px">
+      <input type="button"  
+             value="North"
+             onclick="btn_moveN_click();">
+    </p>    
+     
+    <p style="text-indent: 250px">       
+      <input type="button"  
+             value="West"
+             onclick="btn_moveW_click();">
+
+      <input type="button"  
+             value="East"
+             onclick="btn_moveE_click();">      
+    </p>  
+  
+    <p style="text-indent: 275px">       
+      <input type="button"  
+             value="South"
+             onclick="btn_moveS_click();">  
+    </p>  
+    <p style="text-indent: 275px">       
+      <input type="button"  
+             value="Score"
+             onclick="alert(currentScore);">  
+    </p>  
+     
+    <p class= "mailto" style="text-indent: 200px;">
+        Any questions?  Please <a href = "mailto:gabbene23@gmail.com"> email me.</a>
+    </p>
+    
+    <p class= "validator" style="text-indent: 275px;">
+       <a href = "http://validator.w3.org/#validate_by_input"> Validator. </a> 
+    </p> 
+  
+</body>
+</html>
