@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+<!-- Gregory Abbene  
+     Due: October 17 2012
+     Introduction to Programming, MT 11:00-12:15 W 9:30-10:45
+     Project 3 - A Song of Ice and Fire (Text adventure) -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+   <meta name="author" content="Greg Abbene" />
+   <title>A Song of Ice and Fire: Tyrion's Adventure(Text Adventure Game)</title>
+   <script type="Text/JavaScript">
+      var currentScore = 0;
+      var northVisited = false;  
+      var eastVisited = false;
+      var westVisited = false;
+      var southVisited = false;
+      var currentLocation = 0;
+      
+      //NEED TO CHANGE!!!! DIFFERENT FUNCTION PER LOCATION!! EX: if go n s e= cant go this way, if w then you go to...
+      // Set up 4 global variables var North=1, var West=2
+      var NORTH = 1;
+      var WEST = 2;
+      var EAST = 3;
+      var SOUTH = 4;
+      //NOT SURE IF THIS WILL WORK
+      //Make 4 seperate functions for each location and use if currentLocation =0, else if... else if...else if...else if...
+      function btn_move_click(direction){
+        if (direction === NORTH) {
+            currentLocation = 1;
+            updateDisplay("You slowly wobble out of the castle, but you should explore around a little bit. It's a small castle, who knows you could find some crucial items....");
+            if(!northVisited){
+              currentScore += 5;
+              northVisited = true;
+            }
+        }            
+             else if(direction === WEST) {
+                currentLocation = 2;
+                updateDisplay("You are at the entrance of the town Inn (Stumble INN), time for another drink. I guess the best way to remember where you left your stuff is to get into the same mindset as last night.");
+                  if(!westVisited){
+                     currentScore += 5;
+                     westVisited = true;
+                  }
+             }   
+
+             else if(direction === EAST) {
+                currentLocation = 3;
+                updateDisplay("You go back into your most recent resting place, the comfy (horse-free) horse stall, is there something in that manure?");
+                if(!eastVisited){
+                  currentScore += 5;
+                  eastVisited = true;
+                }
+              }
+             else if(direction === SOUTH) {
+                currentLocation = 4;
+                updateDisplay("There appears to be a stone wall there, grow 25 feet then see if you can climb that. You'll get some points for the effort though...");
+                if(!southVisited){
+                  currentScore += 5;
+                  southVisited = true;
+                }
+              }
+              else {
+                 var msg = "Error...you shouldn't be here. My friend doesn't like you. I don't like you.'I'm sorry.' You'll be dead. Enter Lightsaber to face."
+                 updateDisplay(msg);
+              }
+           }
+           //***
+           //Get text command to work so input of directions will trigger the direction and store location
+           //***
+  /*    function btn_go_click() {
+          var txt = document.getElementById("txtCommand");
+          var num = parseInt(txt.value);
+          var total   = 0;
+          var average = 0;
+          var count   = 0;
+          var done    = false;
+          
+          while (!done) {
+            var scoreStr = "0";
+            var scoreInt = 0;
+            scoreInt = parseInt(scoreStr)
+            if (scoreStr === null) {
+                scoreInt = 0;
+            }
+            //parseInt will return NaN (not a number) 
+            //if it cannot return
+            if (isNaN(scoreInt)) {
+              updateDisplay("Sorry that command is not valid...please try again");
+            } else {      
+                // Check to see whether or not we're done...
+                if (scoreInt === 0) {
+                  done = true;
+              } else {
+                // ...and do the calculations if not
+                total = total + scoreInt;
+                count = count + 1;  
+                average = (total / count);
+                updateDisplay("Total: " + total + " Average: " + average);
+                }
+             }  
+          }
+      }    
+   */                  
+      function updateDisplay(msg){
+        msg = msg + " 'Current Location' = [" + currentLocation + "]"
+        var ta = document.getElementById("Textarea");
+        ta.value = msg + "\n" + "\n" + ta.value; 
+       } /*want to add Text at bottom with a line break and each addition separate..also want auto scroll down */
+       
+   </script>
+   <style type="Text/css">
+     body {background-color: #0000FF; font-family: "Georgia"; color: white;} 
+     .mailto {background-color: red; color: White;}    
+     .Textarea {background-color: black; color: #C0C0C0; font-size: 12pt; font-weight: bold}
+     .validator {background-color: #FFFFFF}
+   </style>
+</head>
+<body>
+  <h1>A Song Of Ice and Fire: Tyrion's Adventure</h1>
+    <Textarea class= "Textarea" id="Textarea" rows="22" cols= "60">Welcome to A Song of Ice and Fire the Text Adventure! (Based on the amazing novels written by George R.R Martin) 
+  
+  You will be playing as Tyrion Lannister...the wealthy, witty, and whimsical Imp. You find yourself in quite the predicament...like always.
+  
+  With an aching head and a dry mouth from what you presume to be from another overdose of Dornish wine from last night, you find yourself slowly lifting up your body off the cold dirty ground. Shortly after pulling yourself up, you slip into a pile of manure. I guess your visit to Ashford didn't go as planned. Time to weasel your way back to your home in King's Landing, again.
+  
+  Your journey starts in a mild inebriation covered in a mixture of manure and hay. In the middle of the town square involuntarily disguised as a common folk, the first decision awaits. With a fogged mind you recall that King's Landing is somewhat NORTHEAST of here, but first you must gather some of your lost belongings and embark on a dangerous navigation back home.</Textarea>
+
+    <p style= "Text-indent: 100px";>
+    <span style= "color: #C0C0C0;">Enter Command </span>
+    <input type="text" 
+           id="txtCommand" 
+           value="">
+       
+    <input type="button"
+           value="Go"
+           onclick="btn_go_click()";>
+    </p>
+    <p style="Text-indent: 275px">
+      <input type="button"  
+             value="North"
+             onclick="btn_move_click(NORTH);">
+    </p>    
+    <p style="Text-indent: 250px">       
+      <input type="button"  
+             value="West"
+             onclick="btn_move_click(SOUTH);">
+
+      <input type="button"  
+             value="East"
+             onclick="btn_move_click(EAST);">      
+    </p>  
+  
+    <p style="Text-indent: 275px">       
+      <input type="button"  
+             value="South"
+             onclick="btn_move_click(WEST);">  
+    </p>  
+    <p style="Text-indent: 275px">       
+      <input type="button"  
+             value="Score"
+             onclick="alert(currentScore);">  
+    </p>  
+     
+    <p class= "mailto" style="Text-indent: 200px;">
+        Any questions?  Please <a href = "mailto:gabbene23@gmail.com"> email me.</a>
+    </p>
+    
+    <p class= "validator" style="Text-indent: 275px;">
+       <a href = "http://validator.w3.org/#validate_by_input"> Validator. </a> 
+    </p> 
+  
+</body>
+</html>
