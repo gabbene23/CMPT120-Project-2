@@ -9,11 +9,13 @@
    <meta name="author" content="Greg Abbene" />
    <title>A Song of Ice and Fire: Tyrion's Adventure(Text Adventure Game)</title>
    <script type="Text/JavaScript">
-      var currentScore = 0;
-      var northVisited = false;  
-      var eastVisited = false;
-      var westVisited = false;
-      var southVisited = false;
+      var currentScore    = 0;
+      var northVisited    = false;  
+      var eastVisited     = false;
+      var westVisited     = false;
+      var southVisited    = false;
+      var barVisted       = false;
+      var stableVisted    = false;
       var currentLocation = 0;
       
       //NEED TO CHANGE!!!! DIFFERENT FUNCTION PER LOCATION!! EX: if go n s e= cant go this way, if w then you go to...
@@ -25,6 +27,7 @@
       //NOT SURE IF THIS WILL WORK
       //Make 4 seperate functions for each location and use if currentLocation =0, else if... else if...else if...else if...
       function btn_move_click(direction){
+        var msg = "Invalid Command..please try again." 
         if (direction === NORTH) {
             currentLocation = 1;
             updateDisplay("You slowly wobble out of the castle, but you should explore around a little bit. It's a small castle, who knows you could find some crucial items....");
@@ -100,10 +103,30 @@
                 }
              }  
           }
-      }    
+      }   
+           function parseInput() {
+              var textfield = document.getElementById("input");
+              var input = textfield.value;
+              textfield.value = "";
+              if(input === "N" || input === "n" || input === "north") {
+                  but_north();
+              }
+              else if (input === "S" || input === "south" || input === "s") {
+                  but_south();
+              }
+              else if (input === "E" || input === "e" || input === "east") {
+                  but_east();
+              }
+              else if (input === "W" || input === "w" || input === "west") {
+                  but_west();
+              }
+              else {
+                  updateText("I don't understand that");
+              }
+          } 
    */                  
-      function updateDisplay(msg){
-        msg = msg + " 'Current Location' = [" + currentLocation + "]"
+      function updateDisplay(msg){                                   //need to fix updating current score per click or set up counter 
+        msg = msg + " 'Current Location' = [" + currentLocation + "]" /*+ " 'Current Score' = [" + currentScore + "]" */
         var ta = document.getElementById("Textarea");
         ta.value = msg + "\n" + "\n" + ta.value; 
        } /*want to add Text at bottom with a line break and each addition separate..also want auto scroll down */
@@ -126,9 +149,10 @@
   
   Your journey starts in a mild inebriation covered in a mixture of manure and hay. In the middle of the town square involuntarily disguised as a common folk, the first decision awaits. With a fogged mind you recall that King's Landing is somewhat NORTHEAST of here, but first you must gather some of your lost belongings and embark on a dangerous navigation back home.</Textarea>
 
-    <p style= "Text-indent: 100px";>
+    <p style= "Text-indent: 75px";>
     <span style= "color: #C0C0C0;">Enter Command </span>
     <input type="text" 
+           size= "30"
            id="txtCommand" 
            value="">
        
@@ -161,7 +185,10 @@
              value="Score"
              onclick="alert(currentScore);">  
     </p>  
-     
+    <p style="Text-indent: 245px">       
+      <input type="button"  
+             value="Current Location"
+             onclick="alert(currentLocation);">      
     <p class= "mailto" style="Text-indent: 200px;">
         Any questions?  Please <a href = "mailto:gabbene23@gmail.com"> email me.</a>
     </p>
