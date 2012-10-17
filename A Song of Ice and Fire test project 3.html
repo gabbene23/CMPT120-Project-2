@@ -9,23 +9,26 @@
    <meta name="author" content="Greg Abbene" />
    <title>A Song of Ice and Fire: Tyrion's Adventure(Text Adventure Game)</title>
    <script type="Text/JavaScript">
-      var currentScore    = 0;
-      var northVisited    = false;  
-      var eastVisited     = false;
-      var westVisited     = false;
-      var southVisited    = false;
-      var barVisted       = false;
-      var stableVisted    = false;
-      var currentLocation = 0;
+      //Global Variables to help track score and location.
+      var currentScore     = 0;
+      var northVisited     = false;  
+      var eastVisited      = false;
+      var westVisited      = false;
+      var southVisited     = false;
+      var barVisited       = false;
+      var stableVisited    = false;
+      var currentLocation  = 0;
       
       //NEED TO CHANGE!!!! DIFFERENT FUNCTION PER LOCATION!! EX: if go n s e= cant go this way, if w then you go to...
       // Set up 4 global variables var North=1, var West=2
-      var NORTH = 1;
-      var WEST = 2;
-      var EAST = 3;
-      var SOUTH = 4;
+      var NORTH  = 1;
+      var WEST   = 2;
+      var EAST   = 3;
+      var SOUTH  = 4;
+      var BAR    = 5;
+      var STABLE = 6;
       //NOT SURE IF THIS WILL WORK
-      //Make 4 seperate functions for each location and use if currentLocation =0, else if... else if...else if...else if...
+      //Make 6 seperate functions for each location and use if currentLocation =0, else if... else if...else if...else if...
       function btn_move_click(direction){
         var msg = "Invalid Command..please try again." 
         if (direction === NORTH) {
@@ -35,16 +38,26 @@
               currentScore += 5;
               northVisited = true;
             }
-        }            
+        } 
+        //FIX THIS BUTTON  TAKE OUT SECOND LOCATION AND SET UP CASE SWITCH OR ELSE IT WILL NOT WORK!!!!           
              else if(direction === WEST) {
+                if (currentLocation === 0);
                 currentLocation = 2;
-                updateDisplay("You are at the entrance of the town Inn (Stumble INN), time for another drink. I guess the best way to remember where you left your stuff is to get into the same mindset as last night.");
+                updateDisplay("You are at the opened-entrance of the town Inn (Stumble INN), time for another drink. I guess the best way to remember where you left your stuff is to get into the same mindset as last night.");
                   if(!westVisited){
                      currentScore += 5;
                      westVisited = true;
                   }
-             }   
-
+                  else (currentLocation === 2); {
+                  currentLocation = 5;
+                  updateDisplay("Naturally you find yourself float towards the bartender...you think to yourself 'Should I get a drink or talk to the guy with what appears to be your sword around his waste.'");
+                    if(!barVisited){
+                      currentScore += 5;
+                      barVisited = true;
+                    }
+                }   
+             }
+                 
              else if(direction === EAST) {
                 currentLocation = 3;
                 updateDisplay("You go back into your most recent resting place, the comfy (horse-free) horse stall, is there something in that manure?");
@@ -65,7 +78,12 @@
                  var msg = "Error...you shouldn't be here. My friend doesn't like you. I don't like you.'I'm sorry.' You'll be dead. Enter Lightsaber to face."
                  updateDisplay(msg);
               }
-           }
+            } 
+            
+       /*  ********function btn_go_click() {
+          var getLocale = document.getElementById("txtCommand")
+        }  
+        
            //
            //***
            //Get text command to work so input of directions will trigger the direction and store location
