@@ -28,7 +28,7 @@
       var BAR    = 5;
       var STABLE = 6;
       //NOT SURE IF THIS WILL WORK
-      //Make 6 seperate functions for each location and use if currentLocation =0, else if... else if...else if...else if...
+      //Make 6 seperate functions for each location and use if currentLocation =0,CASE SWITCH....NOT else if... else if...else if...else if...
       function btn_move_click(direction){
         var msg = "Invalid Command..please try again." 
         if (direction === NORTH) {
@@ -48,14 +48,15 @@
                      currentScore += 5;
                      westVisited = true;
                   }
-                  else (currentLocation === 2); {
+                  //*********NEED TO ADD SECOND LOCATIONS FOR WEST-->BAR AND ALSO FOR EAST STABLE***************
+                  /*else (currentLocation === 2); {
                   currentLocation = 5;
                   updateDisplay("Naturally you find yourself float towards the bartender...you think to yourself 'Should I get a drink or talk to the guy with what appears to be your sword around his waste.'");
                     if(!barVisited){
                       currentScore += 5;
                       barVisited = true;
                     }
-                }   
+                } */   
              }
                  
              else if(direction === EAST) {
@@ -75,74 +76,51 @@
                 }
               }
               else {
-                 var msg = "Error...you shouldn't be here. My friend doesn't like you. I don't like you.'I'm sorry.' You'll be dead. Enter Lightsaber to face."
+                 var msg = "ERROR, ERROR, ERROR...ABORT CHANGES!!"
                  updateDisplay(msg);
               }
             } 
             
-       /*  ********function btn_go_click() {
-          var getLocale = document.getElementById("txtCommand")
-        }  
+       function btn_go_click() {
+          var command = document.getElementById("txtCommand")
+          switch(command.value){
+            case "N"     : 
+            case "n"     : 
+            case "north" : 
+            case "North" : 
+            case "NORTH" : btn_move_click(NORTH);
+              break;
+            case "S"     : 
+            case "s"     : 
+            case "south" : 
+            case "South" : 
+            case "SOUTH" : btn_move_click(SOUTH);
+              break;
+            case "E"     : 
+            case "e"     : 
+            case "east"  : 
+            case "East"  : 
+            case "EAST"  : btn_move_click(EAST);
+              break;
+            case "W"     : 
+            case "w"     : 
+            case "west"  : 
+            case "West"  : 
+            case "WEST"  : btn_move_click(WEST);
+              break;
+            default      : var msg = "Invalid Command...''you shouldn't be here.'' (Luke ignores) ''My friend doesn't like you..... I don't like you.'' Luke responds ''I'm sorry.'' the fugitive responds''You'll be dead.''...theoretical lightsaber to the face for putting in the wrong command...try any direction variation such as e, E, east, East, or EAST."
+                            updateDisplay(msg);
+              break;
+            }
+       }       
         
            //
            //***
            //Get text command to work so input of directions will trigger the direction and store location
            //***
            //
-  /*    function btn_go_click() {
-          var txt = document.getElementById("txtCommand");
-          var num = parseInt(txt.value);
-          var total   = 0;
-          var average = 0;
-          var count   = 0;
-          var done    = false;
-          
-          while (!done) {
-            var scoreStr = "0";
-            var scoreInt = 0;
-            scoreInt = parseInt(scoreStr)
-            if (scoreStr === null) {
-                scoreInt = 0;
-            }
-            //parseInt will return NaN (not a number) 
-            //if it cannot return
-            if (isNaN(scoreInt)) {
-              updateDisplay("Sorry that command is not valid...please try again");
-            } else {      
-                // Check to see whether or not we're done...
-                if (scoreInt === 0) {
-                  done = true;
-              } else {
-                // ...and do the calculations if not
-                total = total + scoreInt;
-                count = count + 1;  
-                average = (total / count);
-                updateDisplay("Total: " + total + " Average: " + average);
-                }
-             }  
-          }
-      }   
-           function parseInput() {
-              var textfield = document.getElementById("input");
-              var input = textfield.value;
-              textfield.value = "";
-              if(input === "N" || input === "n" || input === "north") {
-                  but_north();
-              }
-              else if (input === "S" || input === "south" || input === "s") {
-                  but_south();
-              }
-              else if (input === "E" || input === "e" || input === "east") {
-                  but_east();
-              }
-              else if (input === "W" || input === "w" || input === "west") {
-                  but_west();
-              }
-              else {
-                  updateText("I don't understand that");
-              }
-          } 
-   */                  
+
+           // ALSO FIGURE OUT HOW TO MAKE COUNTER OF SCORE INSTEAD OF SCORE BUTTON WITH ALERT
       function updateDisplay(msg){                                   //need to fix updating current score per click or set up counter 
         msg = msg + " 'Current Location' = [" + currentLocation + "]" /*+ " 'Current Score' = [" + currentScore + "]" */
         var ta = document.getElementById("Textarea");
@@ -159,7 +137,7 @@
 </head>
 <body>
   <h1>A Song Of Ice and Fire: Tyrion's Adventure</h1>
-    <Textarea class= "Textarea" id="Textarea" rows="22" cols= "60">Welcome to A Song of Ice and Fire the Text Adventure! (Based on the amazing novels written by George R.R Martin) 
+    <Textarea class= "Textarea" id="Textarea" rows="22" cols= "60">Welcome to A Song of Ice and Fire the Text Adventure! (Based on the amazing novels written by George R.R Martin).........WINTER IS COMING! 
   
   You will be playing as Tyrion Lannister...the wealthy, witty, and whimsical Imp. You find yourself in quite the predicament...like always.
   
