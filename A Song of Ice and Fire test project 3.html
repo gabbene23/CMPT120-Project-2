@@ -16,25 +16,27 @@
       var westVisited      = false;
       var southVisited     = false;
       var barVisited       = false;
-      var stallVisited    = false;
+      var stallVisited     = false;
+      var farnorthVisited  = false;
       var currentLocation  = 0;
       
       //NEED TO CHANGE!!!! DIFFERENT FUNCTION PER LOCATION!! EX: if go n s e= cant go this way, if w then you go to...
       // Set up 4 global variables var North=1, var West=2
-      var NORTH  = 1;
-      var WEST   = 2;
-      var EAST   = 3;
-      var SOUTH  = 4;
-      var BAR    = 5;
-      var STALL = 6;
+      /*var NORTH    = 1;
+      var WEST     = 2;
+      var EAST     = 3;
+      var SOUTH    = 4;
+      var BAR      = 5;
+      var STALL    = 6;
+      var FARNORTH = 10;
+      */
       //NOT SURE IF THIS WILL WORK
       //Make 6 seperate functions for each location and use if currentLocation =0,CASE SWITCH....NOT else if... else if...else if...else if...
       
       function location_switch (location) {
         switch(location) {
         
-          case "townsquare" : var msg = "You are back in the townsquare, the starting location."
-                             //currentLocation = 0;
+          case "townSquare" : var msg = "You are back in the townsquare, the starting location."                            
                              updateDisplay(msg);
                              document.getElementById("btnNorth").style.visibility="visible";
                              document.getElementById("btnWest").style.visibility="visible";
@@ -43,7 +45,6 @@
                              break;
                              
           case "leaveCastle" : var msg = "You slowly wobble out of the castle, but you should explore around a little bit. It's a small castle, who knows you could find some crucial items....To the West there is a small hut, Kings Landing is NORTH, and nothing is immediatly to the EAST"
-                              //currentLocation = 1;
                               updateDisplay(msg);
                               document.getElementById("btnNorth").style.visibility="visible";
                               document.getElementById("btnWest").style.visibility="visible";
@@ -102,6 +103,18 @@
                                   stallVisited = true;
                                 }
                                 break;
+          
+          case "farnorth"    : var msg = "NEED TO MAKE LOCATION"
+                              updateDisplay(msg)
+                              document.getElementById("btnNorth").style.visibility="hidden";
+                              document.getElementById("btnWest").style.visibility="hidden";
+                              document.getElementById("btnEast").style.visibility="hidden";
+                              document.getElementById("btnSouth").style.visibility="visible";
+                                if(!farnorthVisited){
+                                  currentScore += 5;
+                                  farnorthVisited = true;
+                                }
+                                break;                                
                                 
           default            : var msg = "ERROR, ERROR, ERROR...ABORT CHANGES!!"
                               updateDisplay(msg);
@@ -109,19 +122,29 @@
         }                  
       }  
       
-      function btn_move_click(NORTH) {
-      
+      function btn_north() {
+        var msg = "Invalid Command..please try again."
+          if (currentLocation === 0) {
+            currentLocation = 1;
+            location_switch("leaveCastle");
+        }   else if (currentLocation === 4) {
+              currentLocation = 0;
+              location_switch("townsquare");
+            } else if (currentLocation === 1) {
+                currentLocation = 10;
+                location_switch("farnorth");
+              }
       }
       
-      function btn_move_click(WEST) {
+      function btn_west() {
       
       }
 
-      function btn_move_click(EAST) {
+      function btn_east() {
       
       }
       
-      function btn_move_click(SOUTH) {
+      function btn_south() {
       
       }                  
       /* function btn_move_click(direction){
@@ -193,28 +216,28 @@
             case "n"     : 
             case "north" : 
             case "North" : 
-            case "NORTH" : btn_move_click(NORTH);
+            case "NORTH" : btn_north();
               break;
               
             case "S"     : 
             case "s"     : 
             case "south" : 
             case "South" : 
-            case "SOUTH" : btn_move_click(SOUTH);
+            case "SOUTH" : btn_south();
               break;
               
             case "E"     : 
             case "e"     : 
             case "east"  : 
             case "East"  : 
-            case "EAST"  : btn_move_click(EAST);
+            case "EAST"  : btn_east();
               break;
               
             case "W"     : 
             case "w"     : 
             case "west"  : 
             case "West"  : 
-            case "WEST"  : btn_move_click(WEST);
+            case "WEST"  : btn_west();
               break;
               
             default      : var msg = "Invalid Command...''you shouldn't be here.'' (Luke ignores) ''My friend doesn't like you..... I don't like you.'' Luke responds ''I'm sorry.'' the fugitive responds''You'll be dead.''...theoretical lightsaber to the face for putting in the wrong command...try any direction variation such as e, E, east, East, or EAST."
@@ -269,25 +292,25 @@
     <p style="Text-indent: 275px">
       <input type="button"  
              value="North"
-             onclick="btn_move_click(NORTH)" 
+             onclick="btn_north()" 
              id="btnNorth">
     </p>    
     <p style="Text-indent: 250px">       
       <input type="button"  
              value="West"
-             onclick="btn_move_click(WEST)" 
+             onclick="btn_west()" 
              id="btnWest">
 
       <input type="button"  
              value="East"
-             onclick="btn_move_click(EAST)" 
+             onclick="btn_east()" 
              id="btnEast">      
     </p>  
   
     <p style="Text-indent: 275px">       
       <input type="button"  
              value="South"
-             onclick="btn_move_click(SOUTH)" 
+             onclick="btn_south()" 
              id="btnSouth">  
     </p>  
     <!-- ***Need to get rid of alerts for currentScore and currentLocation*** POSSIBLY MAKE FUNCTIONS FOR EACH FOR updateDisplay( "/n" + "Your score is: " + currentScore)  
