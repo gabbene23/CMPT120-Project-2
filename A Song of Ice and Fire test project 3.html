@@ -16,7 +16,7 @@
       var westVisited      = false;
       var southVisited     = false;
       var barVisited       = false;
-      var stableVisited    = false;
+      var stallVisited    = false;
       var currentLocation  = 0;
       
       //NEED TO CHANGE!!!! DIFFERENT FUNCTION PER LOCATION!! EX: if go n s e= cant go this way, if w then you go to...
@@ -26,29 +26,126 @@
       var EAST   = 3;
       var SOUTH  = 4;
       var BAR    = 5;
-      var STABLE = 6;
+      var STALL = 6;
       //NOT SURE IF THIS WILL WORK
       //Make 6 seperate functions for each location and use if currentLocation =0,CASE SWITCH....NOT else if... else if...else if...else if...
-      function btn_move_click(direction){
-        var msg = "Invalid Command..please try again." 
-        if (direction === NORTH) {
+      
+      function location_switch (location) {
+        switch(location) {
+        
+          case "townsquare" : var msg = "You are back in the townsquare, the starting location."
+                             //currentLocation = 0;
+                             updateDisplay(msg);
+                             document.getElementById("btnNorth").style.visibility="visible";
+                             document.getElementById("btnWest").style.visibility="visible";
+                             document.getElementById("btnEast").style.visibility="visible";
+                             document.getElementById("btnSouth").style.visibility="visible";
+                             break;
+                             
+          case "leaveCastle" : var msg = "You slowly wobble out of the castle, but you should explore around a little bit. It's a small castle, who knows you could find some crucial items....To the West there is a small hut, Kings Landing is NORTH, and nothing is immediatly to the EAST"
+                              //currentLocation = 1;
+                              updateDisplay(msg);
+                              document.getElementById("btnNorth").style.visibility="visible";
+                              document.getElementById("btnWest").style.visibility="visible";
+                              document.getElementById("btnEast").style.visibility="hidden";
+                              document.getElementById("btnSouth").style.visibility="visible";
+                                if(!northVisited){
+                                  currentScore += 5;
+                                  northVisited = true;
+                                }                             
+                              break;
+                                
+          case "barEntrance" : var msg = "You are at the opened-entrance of the town Inn (Stumble INN), time for another drink. I guess the best way to remember where you left your stuff is to get into the same mindset as last night. Go WEST to enter the bar."   
+                              updateDisplay(msg);
+                              document.getElementById("btnNorth").style.visibility="hidden";
+                              document.getElementById("btnWest").style.visibility="visible";
+                              document.getElementById("btnEast").style.visibility="visible";
+                              document.getElementById("btnSouth").style.visibility="hidden";
+                                if(!westVisited){
+                                  currentScore += 5;
+                                  westVisited = true;
+                                } 
+                               break;
+                               
+          case "stallEntrance" : var msg = "you are at the opened and smelly entrance of a stall. Please go EAST to enter the stall."
+                                 updateDisplay(msg);
+                                 document.getElementById("btnNorth").style.visibility="hidden";
+                                 document.getElementById("btnWest").style.visibility="visible";
+                                 document.getElementById("btnEast").style.visibility="visible";
+                                 document.getElementById("btnSouth").style.visibility="hidden";
+                                  if(!eastVisited){
+                                    currentScore += 5;
+                                    eastVisited = true;
+                                  }
+                                  break;
+                                  
+           case "bar"         : var msg = "MAKE BAR TEXT! TYPE IN EAST TO LEAVE"
+                               updateDisplay(msg);
+                               document.getElementById("btnNorth").style.visibility="hidden";
+                               document.getElementById("btnWest").style.visibility="hidden";
+                               document.getElementById("btnEast").style.visibility="visible";
+                               document.getElementById("btnSouth").style.visibility="hidden";
+                                if(!barVisited){
+                                  currentScore += 5;
+                                  barVisited = true;
+                                }
+                               break;
+                               
+           case "stall"      : var msg = "You go back into your most recent resting place, the comfy (horse-free) horse stall, is there something in that manure? Go WEST to leave the stall"
+                              updateDisplay(msg)
+                              document.getElementById("btnNorth").style.visibility="hidden";
+                              document.getElementById("btnWest").style.visibility="hidden";
+                              document.getElementById("btnEast").style.visibility="visible";
+                              document.getElementById("btnSouth").style.visibility="hidden";
+                                if(!stallVisited){
+                                  currentScore += 5;
+                                  stallVisited = true;
+                                }
+                                break;
+                                
+          default            : var msg = "ERROR, ERROR, ERROR...ABORT CHANGES!!"
+                              updateDisplay(msg);
+                              break;      
+        }                  
+      }  
+      
+      function btn_move_click(NORTH) {
+      
+      }
+      
+      function btn_move_click(WEST) {
+      
+      }
+
+      function btn_move_click(EAST) {
+      
+      }
+      
+      function btn_move_click(SOUTH) {
+      
+      }                  
+      /* function btn_move_click(direction){
+         var msg = "Invalid Command..please try again." 
+            if (direction === NORTH) {
             currentLocation = 1;
-            updateDisplay("You slowly wobble out of the castle, but you should explore around a little bit. It's a small castle, who knows you could find some crucial items....");
-            if(!northVisited){
-              currentScore += 5;
-              northVisited = true;
-            }
-        } 
+            //***Updating msg and score in location_switch***
+            //updateDisplay("You slowly wobble out of the castle, but you should explore around a little bit. It's a small castle, who knows you could find some crucial items....");
+            //if(!northVisited){
+              //currentScore += 5;
+              //northVisited = true;
+            //}
+        }
+        
         //FIX THIS BUTTON  TAKE OUT SECOND LOCATION AND SET UP CASE SWITCH OR ELSE IT WILL NOT WORK!!!!           
              else if(direction === WEST) {
                 if (currentLocation === 0);
                 currentLocation = 2;
-                updateDisplay("You are at the opened-entrance of the town Inn (Stumble INN), time for another drink. I guess the best way to remember where you left your stuff is to get into the same mindset as last night.");
-                  if(!westVisited){
-                     currentScore += 5;
-                     westVisited = true;
+                //updateDisplay("You are at the opened-entrance of the town Inn (Stumble INN), time for another drink. I guess the best way to remember where you left your stuff is to get into the same mindset as last night.");
+                  //if(!westVisited){
+                     //currentScore += 5;
+                    // westVisited = true;
                   }
-                  //*********NEED TO ADD SECOND LOCATIONS FOR WEST-->BAR AND ALSO FOR EAST STABLE***************
+                  //*********NEED TO ADD SECOND LOCATIONS FOR WEST-->BAR AND ALSO FOR EAST stall***************
                   /*else (currentLocation === 2); {
                   currentLocation = 5;
                   updateDisplay("Naturally you find yourself float towards the bartender...you think to yourself 'Should I get a drink or talk to the guy with what appears to be your sword around his waste.'");
@@ -56,16 +153,23 @@
                       currentScore += 5;
                       barVisited = true;
                     }
-                } */   
+                }   
              }
                  
              else if(direction === EAST) {
                 currentLocation = 3;
+                
+                
+                //USE FOR stall DISPLAY
                 updateDisplay("You go back into your most recent resting place, the comfy (horse-free) horse stall, is there something in that manure?");
-                if(!eastVisited){
+                if(!stallVisited){
                   currentScore += 5;
-                  eastVisited = true;
+                  stallVisited = true;
                 }
+                //if(!eastVisited){
+                  //currentScore += 5;
+                  //eastVisited = true;
+                //}
               }
              else if(direction === SOUTH) {
                 currentLocation = 4;
@@ -80,6 +184,7 @@
                  updateDisplay(msg);
               }
             } 
+       */
             
        function btn_go_click() {
           var command = document.getElementById("txtCommand")
@@ -90,24 +195,28 @@
             case "North" : 
             case "NORTH" : btn_move_click(NORTH);
               break;
+              
             case "S"     : 
             case "s"     : 
             case "south" : 
             case "South" : 
             case "SOUTH" : btn_move_click(SOUTH);
               break;
+              
             case "E"     : 
             case "e"     : 
             case "east"  : 
             case "East"  : 
             case "EAST"  : btn_move_click(EAST);
               break;
+              
             case "W"     : 
             case "w"     : 
             case "west"  : 
             case "West"  : 
             case "WEST"  : btn_move_click(WEST);
               break;
+              
             default      : var msg = "Invalid Command...''you shouldn't be here.'' (Luke ignores) ''My friend doesn't like you..... I don't like you.'' Luke responds ''I'm sorry.'' the fugitive responds''You'll be dead.''...theoretical lightsaber to the face for putting in the wrong command...try any direction variation such as e, E, east, East, or EAST."
                             updateDisplay(msg);
               break;
@@ -145,7 +254,7 @@
   
   Your journey starts in a mild inebriation covered in a mixture of manure and hay. In the middle of the town square involuntarily disguised as a common folk, the first decision awaits. With a fogged mind you recall that King's Landing is somewhat NORTHEAST of here, but first you must gather some of your lost belongings and embark on a dangerous navigation back home.</Textarea>
 
-    <p style= "Text-indent: 75px";>
+    <p style= "Text-indent: 75px" >
     <span style= "color: #C0C0C0;">Enter Command </span>
     <input type="text" 
            size= "30"
@@ -154,39 +263,48 @@
        
     <input type="button"
            value="Go"
-           onclick="btn_go_click()";>
+           onclick="btn_go_click()" 
+           id="btnGo">
     </p>
     <p style="Text-indent: 275px">
       <input type="button"  
              value="North"
-             onclick="btn_move_click(NORTH);">
+             onclick="btn_move_click(NORTH)" 
+             id="btnNorth">
     </p>    
     <p style="Text-indent: 250px">       
       <input type="button"  
              value="West"
-             onclick="btn_move_click(SOUTH);">
+             onclick="btn_move_click(WEST)" 
+             id="btnWest">
 
       <input type="button"  
              value="East"
-             onclick="btn_move_click(EAST);">      
+             onclick="btn_move_click(EAST)" 
+             id="btnEast">      
     </p>  
   
     <p style="Text-indent: 275px">       
       <input type="button"  
              value="South"
-             onclick="btn_move_click(WEST);">  
+             onclick="btn_move_click(SOUTH)" 
+             id="btnSouth">  
     </p>  
-    <!-- ***Need to get rid of alerts for currentScore and currentLocation*** POSSIBLY MAKE FUNCTIONS FOR EACH FOR updateDisplay( "/n" + "Your score is " + currentScore)  -->
+    <!-- ***Need to get rid of alerts for currentScore and currentLocation*** POSSIBLY MAKE FUNCTIONS FOR EACH FOR updateDisplay( "/n" + "Your score is: " + currentScore)  
+        -->
     <p style="Text-indent: 275px">       
       <input type="button"  
              value="Score"
-             onclick="alert(currentScore);">  
+             onclick="alert(currentScore)" 
+             id="btnScore">  
     </p>  
     <p style="Text-indent: 245px">       
       <input type="button"  
              value="Current Location"
-             onclick="alert(currentLocation);">      
-    <p class= "mailto" style="Text-indent: 200px;">
+             onclick="alert(currentLocation)" 
+             id="btnLocation">     
+              
+    <p class= "mailto" style="Text-indent: 200px" >
         Any questions?  Please <a href = "mailto:gabbene23@gmail.com"> email me.</a>
     </p>
     
