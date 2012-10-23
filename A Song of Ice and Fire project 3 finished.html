@@ -44,6 +44,7 @@
                              document.getElementById("btnWest").style.visibility="visible";
                              document.getElementById("btnEast").style.visibility="visible";
                              document.getElementById("btnSouth").style.visibility="visible";
+                             document.getElementById("location").innerHTML = currentLocation;
                              break;
                              
           case "leaveCastle" : var msg = "You slowly wobble out of the castle, but you should explore around a little bit. It's a small castle, who knows you could find some crucial items....To the West there is a small hut, Kings Landing is NORTH, and nothing is immediately to the EAST";
@@ -144,7 +145,7 @@
                                 }
                               break;                                
                                 
-          default            : var msg = "ERROR, ERROR, ERROR...ABORT CHANGES!!";
+          default            : var msg = "ERROR, ERROR, ERROR...REVERT CHANGES!!";
                               updateDisplay(msg);
                               break;      
         }                  
@@ -261,7 +262,7 @@
    <style type="Text/css">
      body {background-color: #0000FF; font-family: "Georgia"; color: white; text-align:center} 
      .mailto {background-color: red; color: White; text-align:center}    
-     .Textarea {background-color: black; color: #C0C0C0; font-size: 12pt; font-weight: bold; text-align:center}
+     .Textarea {background-color: black; color: #C0C0C0; font-size: 12pt; font-weight: bold;}
      .validator {background-color: #FFFFFF; text-align:center}
      #scoreCounter {text-align:center}
      #locationCounter {color: gold;}
