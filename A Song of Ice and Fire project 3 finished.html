@@ -18,22 +18,20 @@
       var barVisited       = false;
       var stallVisited     = false;
       var farnorthVisited  = false;
-      // var towerVisited  = false; NEED TO MAKE THIS LOCATION AFTER LEAVE CASTLE ****MAKE BUTTON VISIBLE***
+      // var towerVisited  = false; NEED TO MAKE THIS LOCATION AFTER LEAVE CASTLE ****MAKE BUTTON VISIBLE*** GET HORSE AND CANT GET TO 10 UNLESS YOU STEAL HORSE!
       var currentLocation  = 0;
       
-      //NEED TO CHANGE!!!! DIFFERENT FUNCTION PER LOCATION!! EX: if go n s e= cant go this way, if w then you go to...
-      // Set up 4 global variables var North=1, var West=2
+      // Help me keep track of each location
       /*var NORTH    = 1;
-      var WEST     = 2;
-      var EAST     = 3;
-      var SOUTH    = 4;
+      var WEST (BAR ENTRANCE)    = 2;
+      var EAST (STALL ENTRANCE)    = 3;
+      var SOUTH (WALL)   = 4;
       var BAR      = 5;
       var STALL    = 6;
       **var TOWER    = 7;**
       var FARNORTH = 10;
       */
-      //NOT SURE IF THIS WILL WORK
-      //Make 6 seperate functions for each location and use if currentLocation =0,CASE SWITCH....NOT else if... else if...else if...else if...
+ 
       
       function location_switch (location) {
         switch(location) {
@@ -247,7 +245,7 @@
           case "WEST"  : btn_west();
             break;
             
-          default      : var msg = "Invalid Command...\"He doesn't like you'' (Luke ignores) ''I don't like you.'' Luke responds ''I'm sorry.'' the fugitive responds''You'll be dead.''...theoretical lightsaber to the face for putting in the wrong command...try any direction variation such as e, E, east, East, or EAST.";
+          default      : var msg = "Invalid Command...\"He doesn't like you\" (Luke ignores) \"I don't like you.\" Luke responds \"I'm sorry.\" the fugitive responds \"You'll be dead.\"...theoretical lightsaber to the face for putting in the wrong command...try any direction variation such as e, E, east, East, or EAST.";
                           updateDisplay(msg);
             break;
           }
@@ -261,17 +259,17 @@
        
    </script>
    <style type="Text/css">
-     body {background-color: #0000FF; font-family: "Georgia"; color: white;} 
-     .mailto {background-color: red; color: White;}    
-     .Textarea {background-color: black; color: #C0C0C0; font-size: 12pt; font-weight: bold}
-     .validator {background-color: #FFFFFF}
-     #scoreCounter { position: relative; left: 150px;}
-     #locationCounter {color: yellow;}
+     body {background-color: #0000FF; font-family: "Georgia"; color: white; text-align:center} 
+     .mailto {background-color: red; color: White; text-align:center}    
+     .Textarea {background-color: black; color: #C0C0C0; font-size: 12pt; font-weight: bold; text-align:center}
+     .validator {background-color: #FFFFFF; text-align:center}
+     #scoreCounter {text-align:center}
+     #locationCounter {color: gold;}
    </style>
 </head>
 <body>
   <h1>A Song Of Ice and Fire: Tyrion's Adventure</h1>
-    <Textarea class= "Textarea" id="Textarea" rows="22" cols= "60">Welcome to A Song of Ice and Fire: Tyrion's Adventure! (Based on the a series novels written by George R.R Martin).........WINTER IS COMING! 
+    <Textarea class= "Textarea" id="Textarea" rows="25" cols= "75">Welcome to A Song of Ice and Fire: Tyrion's Adventure! (Based on the a series novels written by George R.R Martin).........WINTER IS COMING! 
   
   You will be playing as Tyrion Lannister...the wealthy, witty, and whimsical Imp. You find yourself in quite the predicament...like always.
   
@@ -279,10 +277,10 @@
   
   Your journey starts in a mild inebriation covered in a mixture of manure and hay. In the middle of the town square involuntarily disguised as a common folk, the first decision awaits. With a fogged mind you recall that King's Landing is somewhat NORTHEAST of here, but first you must gather some of your lost belongings and embark on a dangerous navigation back home.</Textarea>
 
-    <p style= "Text-indent: 75px" >
+    <p style= "text-align:center" >
     <span style= "color: #C0C0C0;">Enter Command </span>
     <input type="text" 
-           size= "30"
+           size= "25"
            id="txtCommand" 
            value="">
        
@@ -290,17 +288,16 @@
            value="Go"
            onclick="btn_go_click()" 
            id="btnGo">
-    
-    <span id="locationCounter"> Your current location is: <span id="location"> 0  </span> </span>
-    
     </p>
-    <p style="Text-indent: 275px">
+    
+    <p>
       <input type="button"  
              value="North"
              onclick="btn_north()" 
              id="btnNorth">
-    </p>    
-    <p style="Text-indent: 250px">       
+     <br>
+     <br>
+     
       <input type="button"  
              value="West"
              onclick="btn_west()" 
@@ -310,17 +307,20 @@
              value="East"
              onclick="btn_east()" 
              id="btnEast">      
-    </p>  
-  
-    <p style="Text-indent: 275px">       
+     <br>
+     <br>
+     
       <input type="button"  
              value="South"
              onclick="btn_south()" 
              id="btnSouth">  
-    </p>  
-
+     <br>
+    
+    
+    <span id="locationCounter"> Your current location is: <span id="location"> 0  </span> </span>
+    <br>
     <!-- Score Button
-    <p style="Text-indent: 275px">       
+    <p style=text-align:center">       
       <input type="button"  
              value="Score"
              onclick="alert(currentScore)" 
@@ -328,21 +328,13 @@
     </p>  
     -->
     
-    <span id="scoreCounter"> Your current score is: <span id="score"> 0  </span> </span>
-    
-    <!-- Location Button
-    <p style="Text-indent: 245px">       
-      <input type="button"  
-             value="Current Location"
-             onclick="alert(currentLocation)" 
-             id="btnLocation">
-    -->     
+    <span id="scoreCounter"> Your current score is: <span id="score"> 0  </span> </span>    
               
-    <p class= "mailto" style="Text-indent: 200px" >
+    <p class= "mailto" style="text-align:center" >
         Any questions?  Please <a href = "mailto:gabbene23@gmail.com"> email me.</a>
     </p>
     
-    <p class= "validator" style="Text-indent: 275px;">
+    <p class= "validator" style="text-align:center">
        <a href = "http://validator.w3.org/#validate_by_input"> Validator. </a> 
     </p> 
   
