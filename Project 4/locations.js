@@ -1,7 +1,6 @@
 //
-//
-//      Greg Abbene  
-//      
+//              Greg Abbene  
+//      Project 4 -Due: November 7th 2012
 //
       var currentScore          = 0;
       var currentLocation       = 0;
@@ -125,8 +124,7 @@
           
           //"townSquare" = Default Location
           
-          case "townSquare" : //var msg = "You are back in the townsquare, the starting location.";                            
-                             //updateDisplay(msg);
+          case "townSquare" :
                              document.getElementById("btnNorth").style.visibility="visible";
                              document.getElementById("btnWest").style.visibility="visible";
                              document.getElementById("btnEast").style.visibility="visible";
@@ -134,8 +132,7 @@
                              document.getElementById("location").innerHTML = currentLocation;
                              break;
                              
-          case "leaveCastle" : //var msg = "You slowly wobble out of the castle, but you should explore around a little bit. It's a small castle, who knows you could find some crucial items....To the West there is a small hut, Kings Landing is NORTH, and nothing is immediately to the EAST";
-                              //updateDisplay(msg);
+          case "leaveCastle" : 
                               document.getElementById("btnNorth").style.visibility="visible";
                               document.getElementById("btnWest").style.visibility="visible";
                               document.getElementById("btnEast").style.visibility="hidden";
@@ -147,8 +144,7 @@
                                 }                             
                               break;
                                 
-          case "barEntrance" : //var msg = "You are at the opened-entrance of the town Inn (Stumble INN), time for another drink. I guess the best way to remember where you left your stuff is to get into the same mindset as last night. Go WEST to enter the bar.";   
-                             // updateDisplay(msg);
+          case "barEntrance" : 
                               document.getElementById("btnNorth").style.visibility="hidden";
                               document.getElementById("btnWest").style.visibility="visible";
                               document.getElementById("btnEast").style.visibility="visible";
@@ -161,8 +157,7 @@
                                 } 
                                break;
                                
-          case "stallEntrance" : //var msg = "You are at the opened and smelly entrance of a stall. Please go EAST to enter the stall.";
-                                 //updateDisplay(msg);
+          case "stallEntrance" : 
                                  document.getElementById("btnNorth").style.visibility="hidden";
                                  document.getElementById("btnWest").style.visibility="visible";
                                  document.getElementById("btnEast").style.visibility="visible";
