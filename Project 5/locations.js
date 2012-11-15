@@ -23,6 +23,7 @@
                               document.getElementById("location").innerHTML = currentLocation;
                                 if(!northVisited){
                                   currentScore += 5;
+                                  document.getElementById("score").innerHTML = currentScore;
                                   northVisited = true;
                                 }                             
                               break;
@@ -182,7 +183,7 @@
               if (inventory.indexOf("Horse!") !== -1) {
                 currentLocation = 10;
                 location_switch("farnorth");
-                var msg = "NEED TO EDIT WHEN HORSE SEQUENCE IS ADDED!!!!"
+                var msg = "You daze out, and ride your north for a long-time...its boring stuff, but you feel like genius for solving that puzzle."
                 updateDisplay(msg);
             } else {
                 var msg = "There is far too much ground to cover without a horse, you really really need one."

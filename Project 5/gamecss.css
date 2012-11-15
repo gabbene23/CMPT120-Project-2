@@ -1,0 +1,42 @@
+
+/*  Greg Abbene  */
+     
+
+body {
+       background-color: #0000FF; 
+       font-family: Georgia; 
+       color: white;
+       text-align:center
+      } 
+      
+.command {
+          color: #C0C0C0;
+          text-align:center
+         } 
+          
+       
+.mailto {
+         background-color: red; 
+         color: White; 
+         text-align:center
+         }    
+         
+.Textarea {
+           background-color: black; 
+           color: #C0C0C0;
+           font-size: 12pt; 
+           font-weight: bold;
+           }
+           
+.validator {
+            background-color: #FFFFFF; 
+            text-align:center
+           }
+           
+#scoreCounter {
+              text-align:center
+              }
+              
+#locationCounter {
+                  color: gold;
+                 }
