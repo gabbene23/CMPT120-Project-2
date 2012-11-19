@@ -146,11 +146,16 @@
                           updateDisplay(msg);
             break;
           }
-     }       
-         
-      function updateDisplay(msg){                                   
-        msg = msg 
-        var ta = document.getElementById("Textarea");
-        ta.value = msg + "\n" + "\n" + ta.value; 
-       } 
-       
+    }
+        function updateDisplay(msg){                                   
+		    msg = msg 
+		    var ta = document.getElementById("Textarea");
+		    ta.value = msg + "\n" + "\n" + ta.value; 
+        } 
+        function txtLastname_keypress(e)
+        {
+            if (e.which === 13) 
+            {
+                document.getElementById("btnGo").onclick();
+            }            
+        }		

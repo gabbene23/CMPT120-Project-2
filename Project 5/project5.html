@@ -11,7 +11,16 @@
    <link rel="stylesheet" type="Text/css" href="gamecss.css" />
    <script type="Text/JavaScript" src="locations.js"> </script>
    <script type="Text/JavaScript" src="gamelogic.js"> </script>
-   <script type="Text/JavaScript" src="inventory.js"> </script>
+   <script type="Text/JavaScript" src="inventory.js"> </script> 
+   <script type="Text/JavaScript"> 
+	   function txtGo_keypress(e)
+	   {
+		   if (e.which === 13) 
+		   {
+			   document.getElementById("btnGo").onclick();
+		   }            
+	   }			
+   </script>  
 </head>
 <body onload= "init()">
   <h1>A Song Of Ice and Fire: Tyrion's Adventure</h1>
@@ -20,6 +29,7 @@
     <p class="command">
     Enter Command 
     <input type="text" 
+		   onkeypress="txtGo_keypress(event);"
            size= "25"
            id="txtCommand" 
            value="">
