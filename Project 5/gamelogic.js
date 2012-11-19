@@ -14,6 +14,7 @@
       var stallVisited          = false;
       var girlVisited           = false;
       var towerVisited          = false;
+	  var northStallVisited     = false;
       var farnorthVisited       = false;
 
       function init() {
@@ -68,7 +69,7 @@
                          +"\n"
                          +"                 |"
                          +"\n"
-                         +"         [12]    |  [9?]"
+                         +"         [12]    |  [9]"
                          +"\n"
                          +"         [11]    |   |"
                          +"\n"
