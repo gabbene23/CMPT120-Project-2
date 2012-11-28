@@ -30,42 +30,42 @@ function displayArray(array2display) {
   }
 }
 
-function move(direction) {
-	if(nav[currentLocation][0] !== -1)
+function move(direction) {		
+	newLocation = nav[currentLocation][direction];
+	if (newLocation !== -1 && (locs[newLocation].required === null || inventory.indexOf(locs[newLocation].required) !== -1 )) {
+		currentLocation = newLocation;
+		displayNewLocation();
+		if(!locs[currentLocation].wasVisited) {
+			currentScore += 5;
+			document.getElementById("score").innerHTML = currentScore;		
+			locs[currentLocation].wasVisited = true;
+		  }
+  } else {
+    updateDisplay("You cannot go that way.");
+  }
+  
+	if(nav[currentLocation][NORTH] !== -1)
 		document.getElementById("btnNorth").style.visibility="visible";
 	else
 		document.getElementById("btnNorth").style.visibility="hidden";
-		
-	if(nav[currentLocation][1] !== -1)
+	
+	if(nav[currentLocation][SOUTH] !== -1)
 		document.getElementById("btnSouth").style.visibility="visible";
 	else
 		document.getElementById("btnSouth").style.visibility="hidden";
 	
-	if(nav[currentLocation][2] !== -1)
+	if(nav[currentLocation][EAST] !== -1)
 		document.getElementById("btnEast").style.visibility="visible";
 	else
 		document.getElementById("btnEast").style.visibility="hidden";	
-		
-	if(nav[currentLocation][3] !== -1)
+	
+	if(nav[currentLocation][WEST] !== -1)
 		document.getElementById("btnWest").style.visibility="visible";
 	else
 		document.getElementById("btnWest").style.visibility="hidden";
-		
-	newLocation = nav[currentLocation][direction];
-	
-	if (newLocation !== -1 && inventory.indexOf(newLocation.required) !== -1)  {
-		currentLocation = newLocation;
-		displayNewLocation();
-	if(!currentLocation.wasVisited) {
-		currentScore += 5;
-		document.getElementById("score").innerHTML = currentScore;		
-		currentLocation.wasVisited = true;
-	  }
-  } else {
-    updateDisplay("You cannot go that way.");
-  }
+  
 }  
 
 function displayNewLocation() {
-	updateDisplay(locs[currentLocation.description]);
+	updateDisplay(locs[currentLocation].description);
 }

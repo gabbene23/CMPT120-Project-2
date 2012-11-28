@@ -9,11 +9,24 @@
       function take() {
 		if(locs[currentLocation].item != null) {
 				if(inventory.indexOf(locs[currentLocation].item) === -1) {
-					inventory.push(locs[currentLocation].item);
-					locs[currentLocation].item = null;
-					updateDisplay("You now have a " + locs[currentLocation].item + ".");
-					currentScore += 10;
-					document.getElementById("score").innerHTML = currentScore;
+					if(locs[currentLocation].item === "Horse!") {
+						if(inventory.indexOf("Helmet!") !== -1) {
+							inventory.push(locs[currentLocation].item);
+							updateDisplay("You obtained "+ locs[currentLocation].item);
+							locs[currentLocation].item = null;					
+							currentScore += 10;
+							document.getElementById("score").innerHTML = currentScore;
+							inventory.splice(inventory.indexOf("Helmet!"),1);
+						} else
+							updateDisplay("You need a HELMET to trade!");
+					}
+					else {
+						inventory.push(locs[currentLocation].item);
+						updateDisplay("You obtained "+ locs[currentLocation].item);
+						locs[currentLocation].item = null;					
+						currentScore += 10;
+						document.getElementById("score").innerHTML = currentScore;
+					}						
 				}
 		}
 		else {
