@@ -4,20 +4,9 @@
 //
       var currentScore          = 0;
       var currentLocation       = 0;
-      var northVisited          = false;  
-      var eastVisited           = false;
-      var westVisited           = false;
-      var southVisited          = false;
-      var barVisited            = false;
-      var northBarVisited       = false;
-      var secertMeetingVisited  = false;
-      var stallVisited          = false;
-      var girlVisited           = false;
-      var towerVisited          = false;
-	  var northStallVisited     = false;
-      var farnorthVisited       = false;
-
+     
       function init() {
+		//reference all buttons 
         updateDisplay( "Welcome to A Song of Ice and Fire: Tyrion's Adventure!" 
                        + "\n" 
                        + "\n" 
@@ -93,28 +82,28 @@
           case "n"     : 
           case "north" : 
           case "North" : 
-          case "NORTH" : btn_north();
+          case "NORTH" :move(0);
             break;
             
           case "S"     : 
           case "s"     : 
           case "south" : 
           case "South" : 
-          case "SOUTH" : btn_south();
+          case "SOUTH" : move(1);
             break;
             
           case "E"     : 
           case "e"     : 
           case "east"  : 
           case "East"  : 
-          case "EAST"  : btn_east();
+          case "EAST"  : move(2);
             break;
             
           case "W"     : 
           case "w"     : 
           case "west"  : 
           case "West"  : 
-          case "WEST"  : btn_west();
+          case "WEST"  : move(3);
             break;
             
           case "help"  :
@@ -152,10 +141,3 @@
 		    var ta = document.getElementById("Textarea");
 		    ta.value = msg + "\n" + "\n" + ta.value; 
         } 
-        function txtLastname_keypress(e)
-        {
-            if (e.which === 13) 
-            {
-                document.getElementById("btnGo").onclick();
-            }            
-        }		

@@ -9,9 +9,10 @@
    <meta name="author" content="Greg Abbene" />
    <title>A Song of Ice and Fire: Tyrion's Adventure(Text Adventure Game)</title>
    <link rel="stylesheet" type="Text/css" href="gamecss.css" />
-   <script type="Text/JavaScript" src="locations.js"> </script>
    <script type="Text/JavaScript" src="gamelogic.js"> </script>
    <script type="Text/JavaScript" src="inventory.js"> </script> 
+   <script type="Text/JavaScript" src="navigation.js"> </script> 
+   <script type="Text/JavaScript" src="locations.js"> </script>	
    <script type="Text/JavaScript"> 
 	   function txtGo_keypress(e)
 	   {
@@ -24,7 +25,7 @@
 </head>
 <body onload= "init()">
   <h1>A Song Of Ice and Fire: Tyrion's Adventure</h1>
-    <Textarea class= "Textarea" id="Textarea" rows="25" cols= "75"> </Textarea>
+    <Textarea class= "Textarea" id="Textarea" rows="25" cols= "75" readonly = "readonly"> </Textarea>
 
     <p class="command">
     Enter Command 
@@ -32,7 +33,8 @@
 		   onkeypress="txtGo_keypress(event);"
            size= "25"
            id="txtCommand" 
-           value="">
+           value=""
+		   >
        
     <input type="button"
            value="Go"
@@ -43,26 +45,26 @@
     <p>
       <input type="button"  
              value="North"
-             onclick="btn_north()" 
+             onclick="move(0)" 
              id="btnNorth">
      <br>
      <br>
      
       <input type="button"  
              value="West"
-             onclick="btn_west()" 
+             onclick="move(1)" 
              id="btnWest">
 
       <input type="button"  
              value="East"
-             onclick="btn_east()" 
+             onclick="move(2)" 
              id="btnEast">  
      <br>
      <br>
      
       <input type="button"  
              value="South"
-             onclick="btn_south()" 
+             onclick="move(3)" 
              id="btnSouth">  
              
      <br>
