@@ -46,7 +46,7 @@ var locs = [];
 	locs[5].description = "Ah back where you feel comfortable, the good ole' bar. Check if there is some leftover WINE on the counter. Also, is that your HELMET in the NORTH end of the bar?";
 	
 	locs[6]   = new locale ( 6, "Stall", description, "Sword!");
-	locs[6].description = "You go back into your most recent resting place, the comfy (horse-free) horse stall, is there something shiny in that manure?";
+	locs[6].description = "You go back into your most recent resting place, the comfy (horse-free) horse stall, is there something SHINY in that manure?";
 	
 	locs[7]   = new locale ( 7, "Tower", description, "Horse!");
 	locs[7].description = "You're commanded to stop as soon as you walk into the tower by an overly aggressive soldier/guard. You need his HORSE to progress through the game...but you need to trade something valuable!!";
@@ -65,4 +65,4 @@ var locs = [];
 	locs[11].description = "You find a passed out townsman using your HELMET as cup....Also, you find yourself curious as too what is through that slightly opened door NORTH of you..";
 	
 	locs[12]  = new locale (12, "Seceret Meeting", description, item);
-	locs[12].description = "INSERT DEATH SEQUENCE, BUT NEED TO FIGURE OUT HOW TO INITIATE GAMEOVER. For now you're Lucky....just go south.";
+	locs[12].description = "INSERT DEATH SEQUENCE, BUT NEED TO FIGURE OUT HOW TO INITIATE GAMEOVER. For now you're Lucky....just go south and take +5 points.";

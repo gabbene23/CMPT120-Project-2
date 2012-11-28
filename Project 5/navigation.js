@@ -44,27 +44,28 @@ function move(direction) {
     updateDisplay("You cannot go that way.");
   }
   
-	if(nav[currentLocation][NORTH] !== -1)
+	if(nav[currentLocation][NORTH] !== -1) {
 		document.getElementById("btnNorth").style.visibility="visible";
-	else
+  }else {
 		document.getElementById("btnNorth").style.visibility="hidden";
-	
-	if(nav[currentLocation][SOUTH] !== -1)
+	 }
+	if(nav[currentLocation][SOUTH] !== -1) {
 		document.getElementById("btnSouth").style.visibility="visible";
-	else
+	}else {
 		document.getElementById("btnSouth").style.visibility="hidden";
-	
-	if(nav[currentLocation][EAST] !== -1)
+	 }
+	if(nav[currentLocation][EAST] !== -1) {
 		document.getElementById("btnEast").style.visibility="visible";
-	else
+	}else {
 		document.getElementById("btnEast").style.visibility="hidden";	
-	
-	if(nav[currentLocation][WEST] !== -1)
+	 }
+	if(nav[currentLocation][WEST] !== -1) {
 		document.getElementById("btnWest").style.visibility="visible";
-	else
+	}else {
 		document.getElementById("btnWest").style.visibility="hidden";
-  
+   }
 }  
+ 
 
 function displayNewLocation() {
 	updateDisplay(locs[currentLocation].description);
