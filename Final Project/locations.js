@@ -69,7 +69,7 @@ var locs = [];
 	locs[11].description = "You find a passed out townsman using your HELMET as cup....Also, you find yourself curious as too what is through that slightly opened door NORTH of you...";
 	
 	locs[12]  = new locale (12, "Secret Meeting", description, item);
-	locs[12].description = "You stumble into a meeting that you shouldn't be in, this is the middle-ish ages, so you die! ";
+	locs[12].description = "You stumble into a meeting that you shouldn't be in to see a bunch of assassins scheming";
 	
 	locs[13]  = new locale (13, "Ambush", description, "Coins!");
 	locs[13].required 	 = "Sword!"

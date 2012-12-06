@@ -49,7 +49,7 @@ function move(direction) {
 		}
 	} 
 		else {
-		updateDisplay("You cannot go that way.");
+		updateDisplay("You cannot go that way. You need an item, or the locale does not exist!");
 		}
 	if(nav[currentLocation][NORTH] !== -1) {
 		document.getElementById("btnNorth").style.visibility="visible";

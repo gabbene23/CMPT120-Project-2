@@ -5,7 +5,7 @@
     //****Item Prototype*****
       
       var inventory = [];
-		inventory[0] = "";
+	/*  inventory[0] = "";
 		inventory[1] = "";
 		inventory[2] = "";
 		inventory[3] = "";
@@ -13,7 +13,7 @@
 		inventory[5] = "";
 		inventory[6] = "";
       
-/* 	function item(_id, _name, _descrip) {
+	function item(_id, _name, _descrip) {
 		this.id		 =_id
 		this.name	 =_name
 		this.descrip =_decrip
@@ -97,7 +97,7 @@
 					}						
 				}
 		}else {
-		updateDisplay("Theres no item here");
+		updateDisplay("Theres no item here, or you already picked it up.");
 		}
 	  }
          

@@ -18,27 +18,26 @@
 	  
 	 function displaySkillRatio() {
 		skillRatio = 1.5*currentScore/moveCount
-		updateDisplay("Your Skill Ratio is: " + skillRatio + "  (A.K.A \"1.5*Score/moves\"). "  +"\n");
+		updateDisplay("Your Skill Ratio is: " + skillRatio.toFixed(4) + "  (A.K.A \"1.5*Score/moves\"). "  +"\n");
      }
 	 
 	function displayDeathRatio() {
-		deathRatio = currentScore*.02/moveCount
-		updateDisplay("Your Skill Ratio is: " + deathRatio + " (You have no skill since you died...)");
+		deathRatio = currentScore*.05/moveCount
+		updateDisplay("Your Skill Ratio is: " + deathRatio.toFixed(4) + " (You have no skill since you died...)");
      }
 	 
 	 function gameOver() { 
 		document.getElementById("txtCommand").disabled="disabled";
 		document.getElementById("btnGo").style.visibility = "hidden";
-		var msg = "GAMEOVER!!! " + "Your final score is: " + currentScore;
-		updateDisplay("Please refresh the page to restart the game!" +"\n\n");
-		displayDeathRatio();
-		updateDisplay(msg);
+		updateDisplay("Your final score is: " + currentScore +"\n\n");
+	    displayDeathRatio();
+		updateDisplay("You get brutally murdered by assassins in a meeting...GAMEOVER!!! " + "Please refresh the page to restart the game!");
 	  }	
 	  
 	  function victory() { 
 		document.getElementById("txtCommand").disabled="disabled";
 		document.getElementById("btnGo").style.visibility = "hidden";
-		var msg = "VICTORY!!! " + "Your final score is: " + currentScore + "\n";
+		var msg = "You made it back to King's Landing...VICTORY!!! " + "Your final score is: " + currentScore + "\n";
 		updateDisplay("Please refresh the page to play again! " + "\n");
 		displaySkillRatio();
 		updateDisplay(msg);
