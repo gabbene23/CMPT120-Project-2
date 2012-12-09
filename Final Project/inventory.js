@@ -2,9 +2,10 @@
 //      Greg Abbene
 //    Final Project- Due: December 10th 2012
 //    
-      
+      //Empty Inventory...when taken puts into first "not-occupied" index
       var inventory = [];
 
+	  //Take and/or trade function
       function take() {
 		if(locs[currentLocation].item != null) {
 				if(inventory.indexOf(locs[currentLocation].item) === -1) {

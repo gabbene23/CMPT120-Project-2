@@ -3,11 +3,13 @@
 //      Final Project- Due: December 10th 2012
 //
 
+//Global DIRECTION variables
 var NORTH = 0;
 var SOUTH = 1;
 var EAST  = 2;
 var WEST  = 3;
 
+//Navigation 2D array
 var nav = new Array( // LOCDIR  N0  S1  E2  W3
 					    /*0*/  [ 1,  4,  3,  2],
 					    /*1*/  [10,  0, -1,  7],
@@ -33,6 +35,7 @@ function displayArray(array2display) {
   }
 }
 
+//Movement functionality and limitations
 function move(direction) {		
 	moveCount = moveCount + 1;
 
@@ -71,12 +74,14 @@ function move(direction) {
 	}else {
 		document.getElementById("btnWest").style.visibility="hidden";
 
+//[-1],[-1],[-1],[-1] -->
 var noLocs  = true;
 	for(i = 0; i < nav[currentLocation].length; i++) {
 		if(nav[currentLocation][i] !== -1)
 			noLocs = false;
    }
-   
+
+//Gameover and Victory Applications   
 var noLocs2 = true;
 	for(i = 0; i < nav[currentLocation].length; i++) {
 		if(nav[currentLocation][i] !== -1)

@@ -26,6 +26,7 @@
 		updateDisplay("Your Skill Ratio is: " + deathRatio.toFixed(4) + " (You have no skill since you died...)");
      }
 	 
+	 //GAME OVER!!!
 	 function gameOver() { 
 		document.getElementById("txtCommand").disabled="disabled";
 		document.getElementById("btnGo").style.visibility = "hidden";
@@ -38,6 +39,7 @@
 		updateDisplay("You get brutally murdered...GAMEOVER!!! " + "Please refresh the page to restart the game and if you cannot solve the puzzles I advise you clink the below link for GAME HINTS!!");
 	  }	
 	  
+	  //MADE IT HOME!!!
 	  function victory() { 
 		document.getElementById("txtCommand").disabled="disabled";
 		document.getElementById("btnGo").style.visibility = "hidden";
@@ -59,8 +61,11 @@
                        + "\n\n" 
                        + "TO VIEW MAP: m, M, map"
                        + "\n\n" 
+                       + "TO DANCE!!!: d, D, dance" 
+                       + "\n\n" 
                        + "TO VIEW INVENTORY: i, I, inventory" 
                        + "\n"
+                       + "FOR GAME HINTS CLICK THE LINK UNDER THE SCORE COUNTER!"
                        + "---------------------------------------------------------")
       }
 	  
@@ -148,7 +153,7 @@
             
           case "take"  : 
           case "t"     :
-	      case "T"     : take(), moveCount = moveCount + 1;
+	      case "T"     : take();
             break;
           
           
@@ -170,6 +175,7 @@
           
           default      : var msg = "Invalid Command...\"He doesn't like you\" (Luke Skywalker ignores) \"I don't like you.\" Luke responds \"I'm sorry.\" the fugitive responds \"You'll be dead.\"...theoretical lightsaber to the face for putting in the wrong command.... Enter the  \"help\" command for some suggestions.";
                           updateDisplay(msg);
+						  //Movement counter adds one if you do bad command..
 						  moveCount = moveCount + 1;
             break;
           }

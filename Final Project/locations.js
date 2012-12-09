@@ -25,9 +25,9 @@ function locale(_id, _name, _description, _item) {
    }
 }   
 
+//Locations 
 var description = "";  
 var item = null;
-//var use  = null;
 var locs = [];
 	locs[0]  = new locale ( 0, "Town Square", description, item);
 	locs[0].description = "You are in the starting location, Town Square.";
@@ -76,7 +76,6 @@ var locs = [];
 	locs[13].description = "You are ambushed by a lone wildling! You use your SHIELD to deflect his attempted stab and in a haze you parry and kill him with your SWORD! Look he dropped some COINS!"; 	
 	
 	locs[14]  = new locale (14, "Guard", description, "Pride!");
-	//console.log(locs[14].item);
 	locs[14].description = "You need WINE! to go home....and PAY the guard for some points. Go EAST to get home.";
 	
     locs[15] = new locale  (15, "King's Landing", description, item);
