@@ -1,0 +1,21 @@
+		//*****GAME HINTS*****//
+	
+	***LOOK AT THE MAP or type in M command to get Location IDs***
+First You need to make sure you pick up all the items in the castle:
+	At location 6 get the SWORD!
+	At location 9 get the SHIELD!
+	At location 3 get the WINE!
+	At location 11 get the HELMET!
+	
+******DO NOT GO TO LOCATION 12!!!*******
+
+Need a HORSE to proceed to location 10/progress through the game:
+	Go to location 7
+	Do the take/trade command to trade the HELMET! for a HORSE!
+	
+Ambush at Location 13:
+	Need to have the SWORD! and SHIELD! in inventory....if not you die
+	Can pick up some COINS! to get some extra points to trade at the next Location(14)
+	At location 14 can trade COINS! for some PRIDE! and get some points
+	
+********Need to have WINE! in inventory...or else you cannot go home***********

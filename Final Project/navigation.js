@@ -78,12 +78,15 @@ var noLocs  = true;
    }
    
 var noLocs2 = true;
-	if((noLocs) && (newLocation !== 15)) {
+	for(i = 0; i < nav[currentLocation].length; i++) {
+		if(nav[currentLocation][i] !== -1)
+		noLocs = false;
+	}if(noLocs && (newLocation !== 15)) {
 		gameOver();
-   }else if ((noLocs2) && (newLocation === 15)){
+	}else if (noLocs && (newLocation === 15)){
 		victory();
-   }
-  }    
+		}
+	}    
 }
 
 function displayNewLocation() {

@@ -8,8 +8,7 @@ function locale(_id, _name, _description, _item) {
    this.id            = _id;
    this.name          = _name;
    this.description   = _description;
-   this.item          = _item;
-   //this.use           = _use;   
+   this.item          = _item;  
    this.required      = null;
    this.requiredToo   = null;
    this.wasVisited	  = false;
@@ -74,7 +73,7 @@ var locs = [];
 	locs[13]  = new locale (13, "Ambush", description, "Coins!");
 	locs[13].required 	 = "Sword!"
 	locs[13].requiredToo = "Shield!"
-	locs[13].description = "You are ambushed by a lone wildling! You use your SHIELD to deflect his attempted stab and in a haze you parry and kill him with your SWORD! Look he dropped some COINS! You might need that later.."; 	
+	locs[13].description = "You are ambushed by a lone wildling! You use your SHIELD to deflect his attempted stab and in a haze you parry and kill him with your SWORD! Look he dropped some COINS!"; 	
 	
 	locs[14]  = new locale (14, "Guard", description, "Pride!");
 	//console.log(locs[14].item);

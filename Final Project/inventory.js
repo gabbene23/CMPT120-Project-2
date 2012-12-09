@@ -14,9 +14,10 @@
 		inventory[6] = "";
       
 	function item(_id, _name, _descrip) {
-		this.id		 =_id
-		this.name	 =_name
-		this.descrip =_decrip
+		this.id		   =_id
+		this.name	   =_name
+		this.descrip   =_decrip
+		this.wasTaken  = false;
 		
 		this.toString = function() {
 			var retVal = "";

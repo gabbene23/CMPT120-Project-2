@@ -29,14 +29,22 @@
 	 function gameOver() { 
 		document.getElementById("txtCommand").disabled="disabled";
 		document.getElementById("btnGo").style.visibility = "hidden";
+		document.getElementById("btnNorth").disabled="disabled";
+		document.getElementById("btnSouth").disabled="disabled";
+		document.getElementById("btnEast").disabled="disabled";
+		document.getElementById("btnWest").disabled="disabled";
 		updateDisplay("Your final score is: " + currentScore +"\n\n");
 	    displayDeathRatio();
-		updateDisplay("You get brutally murdered by assassins in a meeting...GAMEOVER!!! " + "Please refresh the page to restart the game!");
+		updateDisplay("You get brutally murdered...GAMEOVER!!! " + "Please refresh the page to restart the game and if you cannot solve the puzzles I advise you clink the below link for GAME HINTS!!");
 	  }	
 	  
 	  function victory() { 
 		document.getElementById("txtCommand").disabled="disabled";
 		document.getElementById("btnGo").style.visibility = "hidden";
+		document.getElementById("btnNorth").disabled="disabled";
+		document.getElementById("btnSouth").disabled="disabled";
+		document.getElementById("btnEast").disabled="disabled";
+		document.getElementById("btnWest").disabled="disabled";
 		var msg = "You made it back to King's Landing...VICTORY!!! " + "Your final score is: " + currentScore + "\n";
 		updateDisplay("Please refresh the page to play again! " + "\n");
 		displaySkillRatio();
