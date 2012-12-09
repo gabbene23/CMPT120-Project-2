@@ -29,12 +29,6 @@ var nav = new Array( // LOCDIR  N0  S1  E2  W3
 						/*15*/ [-1, -1, -1, -1]
 		  );
 		   
-function displayArray(array2display) {
-  for (var i=0; i < array2display.length; i++) {
-    updateDisplay(i + ":" + array2Display[i]);
-  }
-}
-
 //Movement functionality and limitations
 function move(direction) {		
 	moveCount = moveCount + 1;
