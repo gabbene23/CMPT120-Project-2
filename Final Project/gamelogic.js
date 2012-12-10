@@ -6,7 +6,7 @@
       var currentLocation       = 0;
 	  var moveCount             = 0;
 	  
-      function init() {	  
+      function init() {	   
         updateDisplay( "Welcome to A Song of Ice and Fire: Tyrion's Adventure!" 
                        + "\n\n" 
                        + "Alright Tyrion Lanister, you are hungover/still drunk in the middle of Townsquare covered in manure ...again."
@@ -66,7 +66,7 @@
                        + "TO VIEW INVENTORY: i, I, inventory" 
                        + "\n"
                        + "FOR GAME HINTS CLICK THE LINK UNDER THE SCORE COUNTER!"
-                       + "---------------------------------------------------------")
+                       + "---------------------------------------------------------");
       }
 	  
       var hasDanced = false;
@@ -110,8 +110,8 @@
                          +"\n"
                          +"     |            [4]          |"
                          +"\n"   
-                         +"     |-------------------------|")
-      }
+                         +"     |-------------------------|");
+      };
 
       function btn_go_click() {
         var command = document.getElementById("txtCommand");

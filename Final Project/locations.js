@@ -22,8 +22,8 @@ function locale(_id, _name, _description, _item) {
              "item:" + this.item                    + "\n"   ;
 
     return retVal;
-   }
-}   
+   };
+};   
 
 //Locations 
 var description = "";  
@@ -45,40 +45,39 @@ var locs = [];
 	locs[4]   = new locale ( 4, "South Wall", description, item);
 	locs[4].description = "There appears to be a stone wall there, grow 25 feet then see if you can climb that. You'll get some points for the effort though...";
 	
-	locs[5]   = new locale ( 5, "BAR!", description, "Wine!");
+	locs[5]   = new locale ( 5, "BAR!", description, arrayItem[2]);
 	locs[5].description = "Ah back where you feel comfortable, the good ole' bar. Check if there is some leftover WINE on the counter. Also, is that your HELMET in the NORTH end of the bar?";
 	
-	locs[6]   = new locale ( 6, "Stall", description, "Sword!");
+	locs[6]   = new locale ( 6, "Stall", description, arrayItem[0]);
 	locs[6].description = "You go back into your most recent resting place, the comfy (horse-free) horse stall, is there something SHINY in that manure?";
 	
-	locs[7]   = new locale ( 7, "Tower", description, "Horse!");
+	locs[7]   = new locale ( 7, "Tower", description, arrayItem[4]);
 	locs[7].description = "You're commanded to stop as soon as you walk into the tower by an overly aggressive soldier/guard. You need his HORSE to progress through the game...but you need to trade something valuable!!";
 	
 	locs[8]   = new locale ( 8, "Girl", description, item);
 	locs[8].description = "You recognize that passed-out girl...O yeah you had a drinking contest with her last night, I guess you won. You get +5 points for being a noble visitor!!";
 	
-	locs[9]   = new locale ( 9, "North of Stall Entrance", description, "Shield!");
+	locs[9]   = new locale ( 9, "North of Stall Entrance", description, arrayItem[1]);
 	locs[9].description = "You were everywhere last night, is that your SHIELD on the ground over there?";
 	
 	locs[10]  = new locale (10, "Far North", description, item);
-	locs[10].required    = "Horse!";
+	locs[10].required    = arrayItem[4];
 	locs[10].description = "You daze out, and ride north for a long-time...its boring stuff, but you feel like a genius for solving that puzzle. King's Landing is NORTH, but you need to go around the mountains blocking it by going WEST";
 	
-	locs[11]  = new locale (11, "North Table in Bar", description, "Helmet!");
+	locs[11]  = new locale (11, "North Table in Bar", description, arrayItem[3]);
 	locs[11].description = "You find a passed out townsman using your HELMET as cup....Also, you find yourself curious as too what is through that slightly opened door NORTH of you...";
 	
 	locs[12]  = new locale (12, "Secret Meeting", description, item);
 	locs[12].description = "You stumble into a meeting that you shouldn't be in to see a bunch of assassins scheming";
 	
-	locs[13]  = new locale (13, "Ambush", description, "Coins!");
-	locs[13].required 	 = "Sword!"
-	locs[13].requiredToo = "Shield!"
+	locs[13]  = new locale (13, "Ambush", description, arrayItem[5]);
+	locs[13].required 	 = arrayItem[0];
+	locs[13].requiredToo = arrayItem[1];
 	locs[13].description = "You are ambushed by a lone wildling! You use your SHIELD to deflect his attempted stab and in a haze you parry and kill him with your SWORD! Look he dropped some COINS!"; 	
 	
-	locs[14]  = new locale (14, "Guard", description, "Pride!");
-	locs[14].description = "You need WINE! to go home....and PAY the guard for some points. Go EAST to get home.";
+	locs[14]  = new locale (14, "Guard", description, arrayItem[6]);
+	locs[14].description = "***You need WINE! to go home(the next location East)....and PAY the guard for some points. Go EAST to get home.";
 	
     locs[15] = new locale  (15, "King's Landing", description, item);
-	locs[15].required    = "Wine!";
-	//console.log(locs[15].required);
+	locs[15].required    = arrayItem[2];
 	locs[15].description = "Home Sweet Home!";

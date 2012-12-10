@@ -34,9 +34,9 @@ function move(direction) {
 	moveCount = moveCount + 1;
 
 	var newLocation = nav[currentLocation][direction];
-	if (newLocation === 13 && (inventory.indexOf(locs[newLocation].required) === -1 || inventory.indexOf(locs[newLocation].requiredToo) === -1)) {
+	if (newLocation === 13 && (inventory[locs[newLocation].required.id] !== locs[newLocation].required || inventory[locs[newLocation].requiredToo.id] !== locs[newLocation].requiredToo)) {
 		gameOver(); 
-	} else if (newLocation !== -1 && (locs[newLocation].required === null || inventory.indexOf(locs[newLocation].required) !== -1)) { 
+	} else if (newLocation !== -1 && (locs[newLocation].required == null || inventory[locs[newLocation].required.id] === locs[newLocation].required)) { 
 		currentLocation = newLocation;
 		displayNewLocation();
 		if(!locs[currentLocation].wasVisited) {
